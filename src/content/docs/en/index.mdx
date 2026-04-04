@@ -1,0 +1,50 @@
+---
+title: Pico DM 1P5623
+description: LVGL Development/Evaluation Board based on Raspberry Pi Pico
+template: splash
+hero:
+  tagline: LVGL Development/Evaluation Board based on Raspberry Pi Pico
+  actions:
+    - text: Get Started
+      link: /get-started/introduction/
+      icon: right-arrow
+    - text: GitHub
+      link: https://github.com/embeddedboys
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Features
+
+<CardGrid stagger>
+	<Card title="RP2040 Raspberry Pi Pico" icon="pencil">
+		Dual-core ARM Cortex M0+ processor
+	</Card>
+	<Card title="420MHz Overclocking" icon="pencil">
+		Powerful performance
+	</Card>
+	<Card title="PIO LCD Driver" icon="pencil">
+		Flexible display driver solution
+	</Card>
+	<Card title="Resistive/Capacitive Touchscreen" icon="pencil">
+		Multiple touch options
+	</Card>
+	<Card title="LVGL Embedded GUI Library" icon="pencil">
+		Rich graphical interface components
+	</Card>
+	<Card title="Open Source Hardware/Software" icon="pencil">
+		Completely open design
+	</Card>
+	<Card title="FreeRTOS SMP Dual-core LVGL" icon="pencil">
+		Real-time operating system support
+	</Card>
+	<Card title="Complete Developer Documentation" icon="pencil">
+		Detailed development guide
+	</Card>
+</CardGrid>
+
+## Note
+
+Note on dual-buffering memory limitations: When using double buffering, pay attention to memory usage to ensure sufficient RAM to support the display buffer.

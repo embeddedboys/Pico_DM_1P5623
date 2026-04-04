@@ -6,20 +6,45 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Pico DM 1P5623',
+			defaultLocale: 'root',
+			locales: {
+				root: {
+					label: '简体中文',
+					lang: 'zh-CN',
+				},
+				en: {
+					label: 'English',
+					lang: 'en',
+				},
+			},
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/embeddedboys/Pico_DM_1P5623' }],
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: '快速上手',
+					translations: { en: 'Get Started' },
+					autogenerate: { directory: 'get-started' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: '开发',
+					translations: { en: 'Development' },
+					autogenerate: { directory: 'development' },
 				},
+				{
+					label: 'FAQ',
+					translations: { en: 'FAQ' },
+					autogenerate: { directory: 'faq' },
+				},
+				{
+					label: '关于',
+					translations: { en: 'About' },
+					autogenerate: { directory: 'about' },
+				},
+				{
+					label: '致谢',
+					translations: { en: 'Acknowledgements' },
+					autogenerate: { directory: 'acknowledgements' },
+				}
 			],
 		}),
 	],

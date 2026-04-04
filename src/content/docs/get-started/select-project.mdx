@@ -1,0 +1,269 @@
+---
+title: 选择工程
+description: 选择适合的 Pico DM 1P5623 工程版本
+---
+
+我们提供了多个版本的工程。如果您对这些工程的移植过程感兴趣，可以参考移植教程中的相关内容。
+
+我们正在持续开发中，目前提供的工程包括但不限于：
+
+- [x] Template 模板
+- [ ] 裸机
+- [ ] USB 显示屏（开发中）
+- [ ] RP2350 LVGL全屏刷新示例
+- [ ] EEZ Studio示例工程
+- [ ] 8080屏模板工程
+- [ ] FreeRTOS
+- [ ] ESP32
+- [ ] Linux
+- [ ] Micropython (Python)
+- [ ] Arduino
+- [ ] embedded_graphics (Rust)
+- [ ] Slint (Rust)
+- [ ] zephyr
+- [ ] Nuttx
+- [ ] hagl
+- [ ] AWTK
+- [ ] uMac
+- [ ] SGL
+- [ ] uGUI
+
+### Template 模板
+
+该版本完全基于官方 Pico C-SDK 开发。
+
+### 裸机
+
+该版本在 Template 的基础上移植了LVGL
+
+仓库链接：[https://gitee.com/embeddedboys/pico_dm_1p5623_noos](https://gitee.com/embeddedboys/pico_dm_1p5623_noos)
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_noos
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_noos
+```
+
+### USB Display
+
+我们将在现有工程（裸机或 FreeRTOS）基础上添加 USB 显示屏支持，实现以下目标：
+
+1. 在 Linux 上通过 USB 连接后，将创建一个新的 fb 设备
+
+2. 在 Windows 上通过 USB 连接后，将识别到一个新的显示器
+
+上述两种方式均可为主机提供主显示器或扩展显示器支持。
+
+3. 无需安装驱动，通过 Python 脚本即可作为主机发送端使用。
+
+工程还在开发中，目前还不支持触摸上报，您可以到如下仓库链接查看最新开发进度：
+
+仓库链接：[https://gitee.com/embeddedboys/pico_dm_1p5623_udd](https://gitee.com/embeddedboys/pico_dm_1p5623_udd)
+
+有关编译、烧录及使用的说明，请先查看上述仓库的 README 文件。
+
+Gitee
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_udd
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_udd
+```
+
+### RP2350 LVGL 全屏刷新示例
+
+使用局部刷新时，需要在发送像素数据前向屏幕驱动发送额外命令来设置绘制窗口，这会降低刷新效率。此外，我们的 8080 PIO 程序仅支持设置 `DB0 - DB15` 和 `WR` 引脚。如需切换 `命令/数据` 写入，需要在数据写入 PIO 前调用 `gpio_put` 切换 `RS` 引脚，以告知屏幕驱动 IC 当前写入的是命令还是数据。
+
+拓展板分辨率为 480x320，使用 RGB565 格式，一帧像素占用 (480 × 320 × 2) = 307200 字节。RP2350 具有 512KB SRAM，因此可以在 RP2350 上启用 LVGL 全屏刷新功能，每当 LVGL Screen 对象有内容更新时，LVGL 会请求一次全屏刷新。
+
+拉取代码仓库：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_rp2350_lvgl_full_refresh.git
+```
+
+gitee 镜像待添加
+
+### EEZ Studio LVGL 示例工程
+
+Desktop / Embedded GUI development & Automation
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_eez
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_eez
+```
+
+### 8080 屏幕模板工程
+
+如果您想为本项目移植其他 8080 屏幕，可以从以下仓库获取模板工程。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_i8080_template
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_i8080_template
+```
+
+### FreeRTOS
+
+该版本在裸机工程基础上添加了 FreeRTOS。注意，该 FreeRTOS 工程**不支持**双核 SMP 调度，仅启用了一个核心，另一个核心处于休眠状态。如需开启双核支持，请参考移植教程中的相关内容。
+
+仓库链接：[https://gitee.com/embeddedboys/pico_dm_1p5623_freertos](https://gitee.com/embeddedboys/pico_dm_1p5623_freertos)
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_freertos
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_freertos
+```
+
+### ESP32-S3
+
+ESP32-S3 是一款集成了完整 WiFi 和蓝牙功能的芯片。该工程演示了如何在 ESP32-S3 上驱动 LCD 屏幕，仅使用了 LVGL 内置的 demo。
+
+由于文档较长，具体内容请参阅移植教程。
+
+### Linux
+
+Linux 工程演示了如何通过 libgpiod 在 Linux 系统上驱动 8080 LCD，默认运行在 Orange Pi Zero 上。
+
+由于文档较长，具体内容请参阅移植教程。
+
+### Micropython (Python)
+
+该工程演示了如何在 Micropython 上驱动 LCD。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_micropython
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_micropython
+```
+
+### Arduino
+
+该工程演示了如何在 Arduino 框架上驱动 LCD，默认使用了 LVGL 内置的 demo。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_arduino
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_arduino
+```
+
+### embedded_graphics (Rust)
+
+该工程演示了如何在 embedded_graphics 上驱动 LCD。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_embedded_graphics
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_embedded_graphics
+```
+
+### Slint (Rust)
+
+该工程演示了如何在 Slint 上驱动 LCD。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_slint
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_slint
+```
+
+### Zephyr
+
+该工程演示了如何在 Zephyr 上驱动 LCD。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_zephyr
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_zephyr
+```
+
+### hagl
+
+该工程演示了如何在 hagl 上驱动 LCD。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_hagl
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_hagl
+```
+
+### AWTK
+
+该工程演示了如何在 AWTK 上驱动 LCD。
+
+Gitee：
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_awtk
+```
+
+Github：
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_awtk
+```

@@ -1,0 +1,271 @@
+---
+title: Select a Project
+description: Choose the right Pico DM 1P5623 project version for you
+---
+
+We provide multiple versions of projects. If you are interested in the porting process for these projects, please refer to the corresponding content in the porting tutorial.
+
+## Our Developed Projects
+
+We are continuously developing and currently offer the following projects (among others):
+
+- [x] Template
+- [ ] Bare Metal
+- [ ] USB Display (in development)
+- [ ] RP2350 LVGL Full Refresh Example
+- [ ] EEZ Studio Example Project
+- [ ] 8080 Screen Template Project
+- [ ] FreeRTOS
+- [ ] ESP32
+- [ ] Linux
+- [ ] Micropython (Python)
+- [ ] Arduino
+- [ ] embedded_graphics (Rust)
+- [ ] Slint (Rust)
+- [ ] Zephyr
+- [ ] Nuttx
+- [ ] hagl
+- [ ] AWTK
+- [ ] uMac
+- [ ] SGL
+- [ ] uGUI
+
+### Template
+
+This version is developed entirely based on the official Pico C-SDK.
+
+### Bare Metal
+
+This version ports LVGL on top of the Template.
+
+Repository: [https://github.com/embeddedboys/pico_dm_1p5623_noos](https://github.com/embeddedboys/pico_dm_1p5623_noos)
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_noos
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_noos
+```
+
+### USB Display
+
+We will add USB display support on top of existing projects (bare metal or FreeRTOS), achieving the following goals:
+
+1. On Linux, connecting via USB will create a new fb device
+
+2. On Windows, connecting via USB will recognize a new monitor
+
+Both methods provide primary or extended display support for the host machine.
+
+3. No driver installation required - use Python scripts as the host sender.
+
+This project is still under development and does not currently support touch reporting. You can check the latest development progress at the following repository:
+
+Repository: [https://github.com/embeddedboys/pico_dm_1p5623_udd](https://github.com/embeddedboys/pico_dm_1p5623_udd)
+
+For compilation, flashing, and usage instructions, please refer to the README file in the repository above.
+
+GitHub
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_udd
+```
+
+Gitee
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_udd
+```
+
+### RP2350 LVGL Full Refresh Example
+
+When using partial refresh, additional commands need to be sent to the screen driver to set the drawing window before sending pixel data, which reduces refresh efficiency. Additionally, our 8080 PIO program only supports setting `DB0 - DB15` and `WR` pins. If switching between `command/data` writes is required, `gpio_put` must be called before writing data to PIO to toggle the `RS` pin, informing the screen driver IC whether the current write is a command or data.
+
+The expansion board has a resolution of 480x320, using RGB565 format. A full screen of pixels occupies (480 × 320 × 2) = 307200 bytes. The RP2350 has 512KB of SRAM, so we can enable LVGL full refresh on the RP2350. Whenever there is content update on the LVGL Screen object, LVGL will request a full screen refresh.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_rp2350_lvgl_full_refresh.git
+```
+
+Gitee mirror coming soon
+
+### EEZ Studio LVGL Example Project
+
+Desktop / Embedded GUI development & Automation
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_eez
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_eez
+```
+
+### 8080 Screen Template Project
+
+If you want to port other 8080 screens to this project, you can get the template project from the following repository.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_i8080_template
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_i8080_template
+```
+
+### FreeRTOS
+
+This version adds FreeRTOS on top of the bare metal project. Note that this FreeRTOS project **does not** support dual-core SMP scheduling. Only one core is enabled, and the other core is in sleep state. If you need dual-core support, please refer to the corresponding content in the porting tutorial.
+
+Repository: [https://github.com/embeddedboys/pico_dm_1p5623_freertos](https://github.com/embeddedboys/pico_dm_1p5623_freertos)
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_freertos
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_freertos
+```
+
+### ESP32-S3
+
+ESP32-S3 is a chip with integrated WiFi and Bluetooth capabilities. This project demonstrates how to drive an LCD screen on ESP32-S3, using only the built-in LVGL demo.
+
+Due to the length of the documentation, please refer to the porting tutorial for details.
+
+### Linux
+
+The Linux project demonstrates how to drive an 8080 LCD on Linux systems using libgpiod. This project runs on Orange Pi Zero by default.
+
+Due to the length of the documentation, please refer to the porting tutorial for details.
+
+### Micropython (Python)
+
+This project demonstrates how to drive LCD using Micropython.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_micropython
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_micropython
+```
+
+### Arduino
+
+This project demonstrates how to drive LCD using the Arduino framework, using the built-in LVGL demo by default.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_arduino
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_arduino
+```
+
+### embedded_graphics (Rust)
+
+This project demonstrates how to drive LCD using embedded_graphics.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_embedded_graphics
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_embedded_graphics
+```
+
+### Slint (Rust)
+
+This project demonstrates how to drive LCD using Slint.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_slint
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_slint
+```
+
+### Zephyr
+
+This project demonstrates how to drive LCD using Zephyr.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_zephyr
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_zephyr
+```
+
+### hagl
+
+This project demonstrates how to drive LCD using hagl.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_hagl
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_hagl
+```
+
+### AWTK
+
+This project demonstrates how to drive LCD using AWTK.
+
+GitHub:
+
+```bash
+git clone https://github.com/embeddedboys/pico_dm_1p5623_awtk
+```
+
+Gitee:
+
+```bash
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_awtk
+```

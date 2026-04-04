@@ -1,0 +1,69 @@
+---
+title: Preparation
+description: Required materials and development environment setup for getting started with Pico DM 1P5623
+---
+
+## Required Materials
+
+- Pico_DM_1P5623 Display Expansion Board
+- Raspberry Pi Pico Core Board (optional)
+- USB Type-C Data Cable
+- USB to Serial Module
+
+## Development Environment Setup
+
+This project uses **Ubuntu** as the default development system.
+
+import { Steps } from '@astrojs/starlight/components';
+
+### Deploy pico-sdk
+
+<Steps>
+
+1. Install dependencies
+
+   ```bash
+   sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib ninja-build
+   ```
+
+2. Download pico-sdk source code
+
+   Choose a download source based on your network conditions. Gitee is a mirror of GitHub, and downloading from Gitee is recommended.
+
+   **Gitee**
+
+   ```bash
+   git clone https://gitee.com/embeddedboys/pico-sdk $HOME/pico-sdk
+   ```
+
+   **GitHub**
+
+   ```bash
+   git clone https://github.com/raspberrypi/pico-sdk/ $HOME/pico-sdk
+   ```
+
+3. Clone pico-sdk submodules
+
+   ```bash
+   cd ~/pico-sdk
+   git submodule update --init
+   ```
+
+4. Configure environment variables
+
+   **For bash**
+
+   ```bash
+   echo "export PICO_SDK_PATH=$HOME/pico-sdk" >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+   **For zsh**
+
+   ```bash
+   echo "export PICO_SDK_PATH=$HOME/pico-sdk" >> ~/.zshrc
+   source ~/.zshrc
+   ```
+
+</Steps>
+---
