@@ -5,7 +5,7 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://embeddedboys.github.io',
-	base: '/Pico_DM_1P5623',
+	base: process.env.GITHUB_ACTIONS ? '/Pico_DM_1P5623' : undefined,
 	integrations: [
 		starlight({
 			title: 'Pico DM 1P5623',
