@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://embeddedboys.github.io',
 	base: '/Pico_DM_1P5623',
 	integrations: [
 		starlight({
