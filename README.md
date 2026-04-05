@@ -1,16 +1,15 @@
-# Starlight Starter Kit: Basics
+# Pico DM 1P5623
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue)](https://embeddedboys.github.io/Pico_DM_1P5623/)
 
-```
-npm create astro@latest -- --template starlight
-```
+基于树莓派 Pico 的 LVGL 开发/评估板的文档网站。
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📖 文档
 
-## 🚀 Project Structure
+访问：https://embeddedboys.github.io/Pico_DM_1P5623/
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## 🚀 项目结构
 
 ```
 .
@@ -25,25 +24,25 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
+## 🧞 命令
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm install`             | 安装依赖                                        |
+| `npm run dev`             | 启动本地开发服务器 `localhost:4321`            |
+| `npm run build`           | 构建生产网站到 `./dist/`                        |
+| `npm run preview`         | 本地预览构建结果                                |
 
-## 👀 Want to learn more?
+## 📦 部署
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+文档通过 GitHub Actions 自动部署到 GitHub Pages。
+
+- 推送到 `master` 分支会自动触发构建和部署
+- 部署配置见 `.github/workflows/deploy.yml`
+- 网站地址：https://embeddedboys.github.io/Pico_DM_1P5623/
+
+## 👀 相关链接
+
+- [Starlight 文档](https://starlight.astro.build/)
+- [Astro 文档](https://docs.astro.build)
+- [项目 GitHub](https://github.com/embeddedboys/Pico_DM_1P5623)
