@@ -1,9 +1,15 @@
 ---
 title: 选择工程
 description: 选择适合的 Pico DM 1P5623 工程版本
+sidebar:
+        order: 3
 ---
 
-我们提供了多个版本的工程。如果您对这些工程的移植过程感兴趣，可以参考移植教程中的相关内容。
+我们提供了多个版本的工程, 请根据需求选择合适的工程。 如果您对这些工程的移植过程感兴趣，可以参考移植教程中的相关内容。
+
+:::tip
+大部分工程都提供了预先构建的 UF2 文件，通常可以在仓库的 Release 中找到。
+:::
 
 我们正在持续开发中，目前提供的工程包括但不限于：
 
@@ -30,7 +36,17 @@ description: 选择适合的 Pico DM 1P5623 工程版本
 
 ### Template 模板
 
-该版本完全基于官方 Pico C-SDK 开发。
+该版本完全基于官方 Pico C-SDK 开发，仅提供了屏幕的初始化和刷新接口，这通常是开始移植其他GUI的基础工程。 更多信息请参考仓库 README 文件。
+
+仓库链接：[https://gitee.com/embeddedboys/pico_dm_1p5623_template](https://gitee.com/embeddedboys/pico_dm_1p5623_template)
+
+```bash title="gitee"
+git clone https://gitee.com/embeddedboys/pico_dm_1p5623_template
+```
+
+```bash title="github"
+git clone https://github.com/embeddedboys/pico_dm_1p5623_template
+```
 
 ### 裸机
 
@@ -38,15 +54,11 @@ description: 选择适合的 Pico DM 1P5623 工程版本
 
 仓库链接：[https://gitee.com/embeddedboys/pico_dm_1p5623_noos](https://gitee.com/embeddedboys/pico_dm_1p5623_noos)
 
-Gitee：
-
-```bash
+```bash title="gitee"
 git clone https://gitee.com/embeddedboys/pico_dm_1p5623_noos
 ```
 
-Github：
-
-```bash
+```bash title="github"
 git clone https://github.com/embeddedboys/pico_dm_1p5623_noos
 ```
 
@@ -68,15 +80,11 @@ git clone https://github.com/embeddedboys/pico_dm_1p5623_noos
 
 有关编译、烧录及使用的说明，请先查看上述仓库的 README 文件。
 
-Gitee
-
-```bash
+```bash title="gitee"
 git clone https://gitee.com/embeddedboys/pico_dm_1p5623_udd
 ```
 
-Github：
-
-```bash
+```bash title="github"
 git clone https://github.com/embeddedboys/pico_dm_1p5623_udd
 ```
 
@@ -112,8 +120,6 @@ git clone https://github.com/embeddedboys/pico_dm_1p5623_eez
 
 ### 8080 屏幕模板工程
 
-如果您想为本项目移植其他 8080 屏幕，可以从以下仓库获取模板工程。
-
 Gitee：
 
 ```bash
@@ -127,8 +133,6 @@ git clone https://github.com/embeddedboys/pico_i8080_template
 ```
 
 ### FreeRTOS
-
-该版本在裸机工程基础上添加了 FreeRTOS。注意，该 FreeRTOS 工程**不支持**双核 SMP 调度，仅启用了一个核心，另一个核心处于休眠状态。如需开启双核支持，请参考移植教程中的相关内容。
 
 仓库链接：[https://gitee.com/embeddedboys/pico_dm_1p5623_freertos](https://gitee.com/embeddedboys/pico_dm_1p5623_freertos)
 
@@ -190,8 +194,6 @@ git clone https://github.com/embeddedboys/pico_dm_1p5623_arduino
 
 ### embedded_graphics (Rust)
 
-该工程演示了如何在 embedded_graphics 上驱动 LCD。
-
 Gitee：
 
 ```bash
@@ -205,8 +207,6 @@ git clone https://github.com/embeddedboys/pico_dm_1p5623_embedded_graphics
 ```
 
 ### Slint (Rust)
-
-该工程演示了如何在 Slint 上驱动 LCD。
 
 Gitee：
 
@@ -222,8 +222,6 @@ git clone https://github.com/embeddedboys/pico_dm_1p5623_slint
 
 ### Zephyr
 
-该工程演示了如何在 Zephyr 上驱动 LCD。
-
 Gitee：
 
 ```bash
@@ -238,8 +236,6 @@ git clone https://github.com/embeddedboys/pico_dm_1p5623_zephyr
 
 ### hagl
 
-该工程演示了如何在 hagl 上驱动 LCD。
-
 Gitee：
 
 ```bash
@@ -253,8 +249,6 @@ git clone https://github.com/embeddedboys/pico_dm_1p5623_hagl
 ```
 
 ### AWTK
-
-该工程演示了如何在 AWTK 上驱动 LCD。
 
 Gitee：
 
